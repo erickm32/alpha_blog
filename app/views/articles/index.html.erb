@@ -2,10 +2,21 @@
 
 <h3>listing articles </h3>
 
-<ul>
-<% @articles.each do |article| %>
-  <li> Title: <%= article.title%>     Description: <%= article.description %> </li>
-<% end %>
-</ul>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td>Title: <%= article.title%></td>
+      <td>Description: <%= article.description %></td>
+      <td><%= link_to "Show", article_path(article) %></td>
+      <td><%= link_to "Edit", edit_article_path(article) %></td>
+      <td><%= link_to "Delete", article_path(article), method: 'delete' %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to "New article", new_article_path %>

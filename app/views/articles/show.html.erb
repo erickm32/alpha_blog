@@ -3,4 +3,5 @@
 <p>Title: <%= @article.title %> </p>
 <p>Description: <%= @article.description %> </p>
 
-<%= link_to "Index", articles_path %>
+<%= link_to "Edit this article", edit_article_path(@article) %> |
+<%= link_to "Back to articles list", articles_path %>
