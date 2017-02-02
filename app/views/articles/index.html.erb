@@ -1,1 +1,11 @@
-<h2>index article.</h2>
+<h2>index articles</h2>
+
+<h3>listing articles </h3>
+
+<ul>
+<% @articles.each do |article| %>
+  <li> Title: <%= article.title%>     Description: <%= article.description %> </li>
+<% end %>
+</ul>
+
+<%= link_to "New article", new_article_path %>
