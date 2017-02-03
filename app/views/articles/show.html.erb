@@ -1,7 +1,11 @@
-<h2>Show page</h2>
+<div class="well col-xs-d8 ">
+  <h4 class="center article-title"><strong><%= @article.title %></strong></h4>
+  <hr>
+  <%= content_tag(:div, simple_format(@article.description), class: "article-description") %>
+</div>
 
-<p>Title: <%= @article.title %> </p>
-<p>Description: <%= @article.description %> </p>
-
-<%= link_to "Edit this article", edit_article_path(@article) %> |
-<%= link_to "Back to articles list", articles_path %>
+<div class="center" style="padding-bottom: 30px">
+  <%= link_to "Back to articles list", articles_path, class: "btn btn-primary" %>
+  <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-default"%>
+  <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default delete-btn" %>
+</div>

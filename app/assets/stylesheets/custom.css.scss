@@ -66,6 +66,12 @@ $navbar-default-bg: #202020;
   border-color: #000;
 }
 
+.delete-btn:hover{
+  background-color: #c9302c;
+  border-color: #ac2925;
+  color: white;
+}
+
 .footer {
   margin-top: -10px;
   //padding-top: 5px;
@@ -89,4 +95,23 @@ $navbar-default-bg: #202020;
 .footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+.article-title {
+  font-size: 2em;
+}
+
+.article-description {
+  font-size: 1.5em;
+}
+
+.index-article-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.index-article-description {
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
