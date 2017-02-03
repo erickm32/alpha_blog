@@ -36,6 +36,12 @@ $navbar-default-bg: #202020;
   font-weight: bold;
 }
 
+.jumbotron p {
+  margin: 30px;
+  padding-top: 30px;
+  font-size: 2em;
+}
+
 .home-btn {
   font-size: 1.7em;
   background-color: #282828;
@@ -46,6 +52,18 @@ $navbar-default-bg: #202020;
   font-size: 1.7em;
   background-color: #343434;
   border-color: #ffffff;
+}
+
+.cancel-btn {
+  font-size: 1.7em;
+  color: #282828;
+  border-color: #000;
+}
+
+.cancel-btn:hover {
+  font-size: 1.7em;
+  background-color: #eaeaea;
+  border-color: #000;
 }
 
 .footer {
