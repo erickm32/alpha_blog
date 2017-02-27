@@ -8,6 +8,11 @@
         </div>
         <div class="index-article-description">
           <%= truncate(article.description, length: 180) %>
+          <div class="article-meta-details">
+            <small> Created by: <%= article.user.username if article.user %>,
+              <%= time_ago_in_words(article.created_at) %> ago,
+                last updated at: <%= time_ago_in_words(article.updated_at) %> ago</small>
+          </div>
         </div>
         <div class="center">
           <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-default"%>
