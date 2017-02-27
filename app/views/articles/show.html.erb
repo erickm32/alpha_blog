@@ -2,7 +2,18 @@
   <h4 class="center article-title"><strong><%= @article.title %></strong></h4>
   <hr>
   <%= content_tag(:div, simple_format(@article.description), class: "article-description") %>
+  <% if @article.user %>
+    <div class="center">
+      <p> Created by <%=
+              link_to @article.user.username, user_path(@article.user) %> <%=
+              link_to gravatar_for(@article.user, size: 15), user_path(@article.user) %>, <%=
+              "author of another #{ pluralize(@article.user.articles.count, "article")}" if
+                    @article.user.articles.count > 0  %>.
+      </p>
+    </div>
+  <% end %>
 </div>
+
 
 <div class="center" style="padding-bottom: 30px">
   <%= link_to "Back to articles list", articles_path, class: "btn btn-primary" %>
