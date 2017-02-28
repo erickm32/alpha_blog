@@ -17,6 +17,8 @@
 
 <div class="center" style="padding-bottom: 30px">
   <%= link_to "Back to articles list", articles_path, class: "btn btn-primary" %>
-  <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-default"%>
-  <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default delete-btn" %>
+  <% if logged_in? && current_user == @article.user %>
+    <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-default"%>
+    <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default delete-btn" %>
+  <% end %>
 </div>
