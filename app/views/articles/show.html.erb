@@ -12,6 +12,9 @@
       </p>
     </div>
   <% end %>
+  <% if @article.categories.any? %>
+    <p>Categories: <%= render @article.categories %></p>
+  <% end %>
 </div>
 
 

@@ -1,0 +1,9 @@
+<h1 align="center"><%= "Category " + @category.name + (@category_articles.count >= 1 ?
+                       " has the following " + pluralize(@category_articles.count, "article").gsub!('1 ', '') :
+                       " does not have any article associated yet.")%></h1>
+
+<%= render 'articles/article', obj: @category_articles %>
+
+<div align="center">
+  <%= will_paginate @category_articles %>
+</div>
