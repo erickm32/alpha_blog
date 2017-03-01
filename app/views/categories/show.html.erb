@@ -2,6 +2,14 @@
                        " has the following " + pluralize(@category_articles.count, "article").gsub!('1 ', '') :
                        " does not have any article associated yet.")%></h1>
 
+<% if logged_in? and current_user.admin? %>
+  <div align='center' style="padding-bottom: 10px">
+    <div class="row">
+      <span class='badge'><%= link_to "Edit category name", edit_category_path(@category) %></span>
+    </div>
+  </div>
+<% end %>
+
 <%= render 'articles/article', obj: @category_articles %>
 
 <div align="center">
