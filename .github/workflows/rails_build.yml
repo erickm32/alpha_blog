@@ -29,6 +29,14 @@ jobs:
         key: my-app-cache-{{ checksum "Gemfile.lock" }}
         # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
         # restore-keys: # optional  
+    - name: Cache
+      uses: actions/cache@v1.2.0
+      with:
+        # A directory to store and save the cache
+        path: ~/.cache/yarn
+        # An explicit key for restoring and saving the cache
+        key: my-app-cache-{{ checksum "yarn.lock" }}
+        
     - name: Set up Ruby
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
@@ -36,10 +44,12 @@ jobs:
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
         ruby-version: 2.6.3
-    - name: Install dependencies
-      run: 
-        bundle install --path vendor/bundle
-        yarn install --check-files
+    - name: Install bundle dependencies
+      run: bundle install --path vendor/bundle
+      
+    - name: Install yarn dependencies
+      run: yarn install --check-files --path ~/.cache/yarn
+      
     - name: Setup Rails
       run: bin/setup
     - name: Run tests
