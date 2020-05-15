@@ -37,7 +37,7 @@ jobs:
         # An explicit key for restoring and saving the cache
         key: my-app-cache-{{ checksum "Gemfile.lock" }}
         # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
-        # restore-keys: # optional  
+        # restore-keys: # optional
     - name: Cache
       uses: actions/cache@v1.2.0
       with:
@@ -45,7 +45,7 @@ jobs:
         path: ~/.cache/yarn
         # An explicit key for restoring and saving the cache
         key: my-app-cache-{{ checksum "yarn.lock" }}
-        
+
     - name: Set up Ruby
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
@@ -55,10 +55,16 @@ jobs:
         ruby-version: 2.6.3
     - name: Install bundle dependencies
       run: bundle install --path vendor/bundle --jobs 4 --retry 3
-      
+
     - name: Install yarn dependencies
       run: yarn install --check-files --path ~/.cache/yarn
-      
+
+    - name: Setup Database
+      run: |
+        cp config/database.yml.github-actions config/database.yml
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+
     - name: Setup Rails
       run: bin/setup
       env:
@@ -71,4 +77,3 @@ jobs:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-    
