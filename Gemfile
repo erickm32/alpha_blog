@@ -16,7 +16,7 @@ gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
