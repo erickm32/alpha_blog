@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.11'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.16'
-gem 'will_paginate', '~> 3.3.0'
+gem 'will_paginate', '~> 3.3.1'
 
 gem 'rails-controller-testing'
 
